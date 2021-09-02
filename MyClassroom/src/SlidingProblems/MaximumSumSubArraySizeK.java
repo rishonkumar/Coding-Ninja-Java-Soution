@@ -1,12 +1,9 @@
 package SlidingProblems;
+
 //https://www.geeksforgeeks.org/window-sliding-technique/
 public class MaximumSumSubArraySizeK {
 
-    public static void main(String[] args) {
-
-        int a[] = {1, 4, 2, 10, 2, 3, 1, 0, 20};
-        int k = 4;
-        int n = a.length;
+    public static int getMaxSubbarySum(int[] a, int n, int k) {
         int i = 0; //start
         int j = 0;//end;
         int sum = 0;
@@ -20,6 +17,13 @@ public class MaximumSumSubArraySizeK {
             }
             j++;
         }
-        System.out.print(MaxSum);
+        return MaxSum;
+    }
+    public static void main(String[] args) {
+
+        int a[] = {2, 7, 3, 6, 7, 7};
+        int k = 2;
+        int n = a.length;
+        System.out.print(getMaxSubbarySum(a, n, k));
     }
 }
