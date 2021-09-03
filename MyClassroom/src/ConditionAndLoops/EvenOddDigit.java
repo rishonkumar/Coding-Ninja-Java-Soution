@@ -1,4 +1,4 @@
-package Lecture4;
+package ConditionAndLoops;
 
 import java.util.Scanner;
 

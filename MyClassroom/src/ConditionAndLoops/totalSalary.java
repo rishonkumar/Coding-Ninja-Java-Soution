@@ -1,6 +1,6 @@
-package Lecture4;
+package ConditionAndLoops;
 
-import java.util.*;
+import java.util.Scanner;
 
 public class totalSalary {
     public static void main(String[] args){
