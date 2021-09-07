@@ -8,7 +8,7 @@ public class LeadersofArray {
         int max=Integer.MIN_VALUE;
         for(int i=n-1;i>=0;i--){
             if(max<=arr[i]){
-                System.out.println(arr[i]+" ");
+                System.out.print(arr[i]+" ");
                 max=arr[i];
             }
         }

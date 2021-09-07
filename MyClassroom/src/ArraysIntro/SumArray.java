@@ -11,7 +11,7 @@ public class SumArray {
         int c = 0;
         while (i >= 0 && j >= 0) {
             int s = a1[i] + a2[j] + c;
-            output[k] = s % 10; // to take the kat digit
+            output[k] = s % 10; // to take the last digit
             c = s / 10; // to take the other digit to the carry
             i--;
             j--;
