@@ -21,4 +21,20 @@ public class Delete_Node_In_LL {
         currentHead.next = currentHead.next.next; // point the element to the deleted next element
         return head;
     }
+
+    public static  Node<Integer> deleteNodeRecurive(Node<Integer>head, int pos){
+
+        if(head == null) return head;
+
+        if(pos==0){
+            return head.next;
+        }
+        Node<Integer> newHead = deleteNodeRecurive(head.next,pos-1);
+        head.next=newHead;
+        return head;
+    }
+
+
+
+
 }
