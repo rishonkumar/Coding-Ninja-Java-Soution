@@ -5,7 +5,7 @@ public class StackUsingArray {
     private int data[]; //private coz no can change the data
     private int topIndex; //index of top element of the stack
     public StackUsingArray(){
-        data = new int[10];
+        data = new int[2];
         topIndex=-1;
     }
 
@@ -32,11 +32,21 @@ public class StackUsingArray {
         if(topIndex == data.length-1) {
 //            StackFullException e = new StackFullException();
 //            throw e;
-            throw new StackFullException();
+            //throw new StackFullException();
             //Throw exception
+            doubleCapacity();
         }
         //topIndex++;
         data[++topIndex]=element;
+    }
+
+    private void doubleCapacity() {
+//      System.out.println("Double capacity");
+        int temp[] = data;
+        data = new int[2*temp.length];
+        for(int i=1;i< temp.length;i++){
+            data[i]= temp[i];
+        }
     }
 
     //O(1)
