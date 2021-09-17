@@ -20,6 +20,9 @@ public class Middle__LL {
     }
 
     public static Node<Integer> midPoint2(Node<Integer> head){
+
+        if(head == null || head.next == null) return head;
+
         Node<Integer> s = head;
         Node<Integer> f = head;
 
