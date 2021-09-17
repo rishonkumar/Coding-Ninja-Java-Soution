@@ -1,5 +1,7 @@
 package LinkedList;
 
+import java.util.Scanner;
+
 public class LinkedListUse {
     public static Node<Integer> createLinkedList() {
         Node<Integer>n1 = new Node<>(10);
@@ -58,20 +60,87 @@ public class LinkedListUse {
         if(temp!=null){
             System.out.println(temp.data);
         }
+    }
+
+    //Time complexity -> O(n2)
+    public static Node<Integer>takeInput(){
+        Scanner scn = new Scanner(System.in);
+        int data = scn.nextInt();
+        Node<Integer> head = null;
+        //add elements until u enter -1
+        while(data!=-1){
+            //you will create node if its not -1
+            Node<Integer> currentNode=new Node<Integer>(data);
+            if(head==null){
+                //make this node as head node
+                head = currentNode;
+            }else{
+                Node<Integer>tail = head;
+                while(tail.next!=null){
+                    tail=tail.next;
+                }
+                //Now tail will refer to last node
+                //connect current node after last node
+                tail.next=currentNode;
+            }
+            data=scn.nextInt();
+        }
+        return head;
+    }
+
+    //TimeComplexity-> O(n)
+    public static Node<Integer>takeInput2(){
+        Scanner scn = new Scanner(System.in);
+        int data = scn.nextInt();
+        Node<Integer> head = null;
+        Node<Integer>tail = null;
+        //add elements until u enter -1
+        while(data!=-1){
+            //you will create node if its not -1
+            Node<Integer> currentNode=new Node<Integer>(data);
+            if(head==null){
+                //make this node as head node
+                head = currentNode;
+                tail = currentNode;
+            }else{
+                tail.next=currentNode;
+                tail=currentNode; // or tail=tail.next
+            }
+            data=scn.nextInt();
+        }
+        return head;
+    }
+
+    public static void printRecursive(Node<Integer>head){
+        if(head == null){
+            return;
+        }
+        System.out.print(head.data + "->");
+        printRecursive(head.next); // it will be head for next node
 
     }
 
-
-
+//    public static void printReverseRecursive(Node<Integer>head){
+//        if(head == null) return;
+//
+//        printRecursive(head.next);
+//        System.out.print(head.data + "->");
+//    }
     public static void main(String[] args) {
 
-        Node<Integer> head = createLinkedList();
-        print(head);
-        increment(head);
-        print(head);
-        int length = length(head);
-        System.out.println(length);
-        printIthNode(head,2);
+//        Node<Integer> head = takeInput();
+//        printRecursive(head);
+        Node<Integer> head2 = takeInput();
+//        printReverseRecursive(head2);
+        //Node<Integer> head = createLinkedList();
+        //Node<Integer> head = takeInput();
+       // print(head);
+//        Node<Integer> head1 = takeInput2();
+//        increment(head);
+//        print(head);
+//        int length = length(head);
+//        System.out.println(length);
+//        printIthNode(head,2);
 //		Node<Integer> n1 = new Node<>(10); //new node is created
 //		System.out.println(n1); //prints the address of 10
 //		System.out.println(n1.data); // to print the data
