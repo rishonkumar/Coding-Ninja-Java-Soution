@@ -14,30 +14,45 @@ o/p
 
 public class FindNode {
 
-    public static int findNode(Node<Integer>head, int n){
-        Node<Integer>tempNode = head;
-        int i=0;
-        while (tempNode!=null){
-            if(tempNode.data==n){
+    public static int findNode(Node<Integer> head, int n) {
+        Node<Integer> tempNode = head;
+        int i = 0;
+        while (tempNode != null) {
+            if (tempNode.data == n) {
                 return i;
             }
             i++;
-            tempNode=tempNode.next;
+            tempNode = tempNode.next;
         }
         return -1;
     }
 
-    public static int findNode2(Node<Integer>head, int n){
-        Node<Integer>tempNode = head;
-        int pos=0;
-        while (head!=null){
-            if(head.data.equals(n))
+    public static int findNode2(Node<Integer> head, int n) {
+        Node<Integer> tempNode = head;
+        int pos = 0;
+        while (head != null) {
+            if (head.data.equals(n))
                 return pos;
 
-            head=head.next;
+            head = head.next;
             pos++;
         }
         return -1;
+    }
+
+    public static int findNodeRecursive(Node<Integer> head, int n) {
+        if(head == null) return -1;
+
+        if(head.data.equals(n)) return 0;
+
+        int smallAns = findNodeRecursive(head.next,n);
+
+        if(smallAns==-1) // head is reached null no element found
+            return -1;
+        else
+            return smallAns+1; // add 1 coz we called recusrive from node 1
+
+
     }
 
 }
