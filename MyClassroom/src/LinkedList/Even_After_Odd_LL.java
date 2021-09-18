@@ -1,5 +1,18 @@
 package LinkedList;
-
+/*
+Sample Input 1 :
+1
+1 4 5 2 -1
+Sample Output 1 :
+1 5 4 2
+Sample Input 2 :
+2
+1 11 3 6 8 0 9 -1
+10 20 30 40 -1
+Sample Output 2 :
+1 11 3 9 6 8 0
+10 20 30 40
+ */
 public class Even_After_Odd_LL {
 
     public static Node<Integer>evenafterOdd(Node<Integer>head){
