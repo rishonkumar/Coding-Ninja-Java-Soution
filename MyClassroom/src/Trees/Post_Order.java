@@ -8,7 +8,7 @@ public class Post_Order {
         postOrder(root.left);
         postOrder(root.right);
 
-        System.out.print(root.data);
+        System.out.print(root.data + " ");
 
     }
 }
