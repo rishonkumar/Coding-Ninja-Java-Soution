@@ -146,6 +146,47 @@ public class BinaryTreeUse {
         return root;
     }
 
+    public static BinaryTreeNode<Integer> helper(int[] pre, int[] in, int siPre, int eiPr, int siIn, int eiIn) {
+        if (siPre > eiPr) {
+            return null;
+        }
+        int rootData = pre[siPre];
+        BinaryTreeNode<Integer> root = new BinaryTreeNode<>(rootData);
+        //To find index of root in INORDER
+
+        int rootIndex = -1;
+        for (int i = siIn; i <= eiIn; i++) {
+            if(in[i]==rootData){
+                rootIndex=i;
+                break;
+            }
+        }
+        // I am assuming that root actually is present in inorder
+        int siPreLeft = siPre + 1;
+        int siInLeft = siIn;
+        int eiInLeft = rootIndex - 1;
+
+        int siInRight = rootIndex + 1;
+        int eiPreRight = eiPr;
+        int eiInRight = eiIn;
+
+        int leftSubTreeLength = eiInLeft - siInLeft + 1;
+
+        int eiPreLeft = siPreLeft + leftSubTreeLength -1;
+        int siPreRight = eiPreLeft+1;
+
+        BinaryTreeNode<Integer> left = helper(pre, in, siPreLeft, eiPreLeft, siInLeft, eiPreLeft);
+        BinaryTreeNode<Integer> right = helper(pre, in, siPreRight, eiPreRight, siInRight, eiInRight);
+        root.left = left;
+        root.right = right;
+        return root;
+    }
+
+    public static BinaryTreeNode<Integer> buildTree(int pre[], int in[]) {
+        BinaryTreeNode<Integer> root = helper(pre, in, 0, pre.length - 1, 0, in.length - 1);
+        return root;
+    }
+
     public static void main(String[] args) {
 
         BinaryTreeNode<Integer> root = takeInputLevelWise();
