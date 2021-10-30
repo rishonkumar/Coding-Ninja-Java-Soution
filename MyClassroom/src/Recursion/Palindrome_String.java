@@ -16,7 +16,7 @@ public class Palindrome_String {
         if(si==ei) return true; //only one character
         //if first and last doesn't match return false
         if((str.charAt(si))!=str.charAt(ei)) return false;
-        //if they are true check for middle character
+        //if they are true check for middle characterS
         if(si<ei+1){
             return  checkPalindrome(str,si+1,ei-1);
         }
